@@ -1,4 +1,4 @@
-//EmployeeController.java - logic for checking if data from view.jsp form matches with the data from the database
+//controller - performs server side validation on the data passed through the form, and calls the insert method in the DAO (uses Model)
 package mypackage;
 
 import java.io.IOException;
@@ -25,18 +25,18 @@ public class C_66_Insert extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String credentials[]= new String[2];
 		M_66 friendModel = new M_66();
 		String friendName = req.getParameter("friendName");
 		String emailAddress = req.getParameter("emailAddress");
 		String age = req.getParameter("age");
 		String favoriteColor = req.getParameter("favoriteColor");
-//		server side validation (null check)
 		
+//		server side validation (null check)
 		if(friendName.isEmpty() && emailAddress.isEmpty() && age.isEmpty() && favoriteColor.isEmpty()) {
 			//return back to the form jsp returning empty error
 			System.out.println("One/more of the form fields is empty!");
-			req.setAttribute("emptyError", "true");
+			req.setAttribute("popUpMsg", "One/more form field(s) is empty!");
+//			redirect back to the form and passing the validation error msg to be displayed
 			RequestDispatcher dispatcher = req.getRequestDispatcher("V_66_Add.jsp");
 			dispatcher.forward(req, res);
 		}else {
@@ -51,7 +51,7 @@ public class C_66_Insert extends HttpServlet {
 					//friend added succesffuly, now pass all the records from the database back to the jsp to display
 					friendsInfo = friendDAO.getFriendsInfo();
 					req.setAttribute("friendsInfo", friendsInfo);
-
+					req.setAttribute("popUpMsg", "Record has been successfully added!");
 					RequestDispatcher dispatcher = req.getRequestDispatcher("V_66_View.jsp");
 					dispatcher.forward(req, res);
 				}else {

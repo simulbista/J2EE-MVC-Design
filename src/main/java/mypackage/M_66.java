@@ -1,4 +1,4 @@
-//EmployeeModel.java - stores data from view.jsp user input form
+//stores data from the form
 package mypackage;
 
 public class M_66 {

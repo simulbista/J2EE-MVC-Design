@@ -1,62 +1,105 @@
 @charset "UTF-8";
 
 h1 {
-  font-size: 36px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
+	font-size: 36px;
+	font-weight: bold;
+	color: #4CAF50;
+	margin-bottom: 20px;
+	text-align: center;
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
-  font-family: Arial, sans-serif;
-  border: 1px solid grey;
+	border-collapse: collapse;
+	width: 100%;
+	font-family: Arial, sans-serif;
+	border: 1px solid grey;
 }
 
 th, td {
-  text-align: left;
-  padding: 8px;
+	text-align: left;
+	padding: 8px;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
 
 th {
-  background-color: #4CAF50;
-  color: white;
+	background-color: #4CAF50;
+	color: white;
 }
 
-
 form {
-    max-width: 500px;
-    margin: 0 auto;
+	max-width: 500px;
+	margin: 0 auto;
+	border: 2px solid #4CAF50;
+	padding: 40px;
+	background-color: #f2f2f2;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="number"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+input[type="text"], input[type="email"], input[type="number"] {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	font-size: 16px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
 }
 
 input[type="submit"] {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    }
+	display: block;
+	width: 150px;
+	margin: 0 auto; 
+	background-color: #4CAF50;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px 20px;
+	border: none;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+}
+
+.view-link {
+	display: block;
+	width: 150px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #4CAF50;
+	color: white;
+	padding: 15px 32px;
+	text-decoration: none;
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+.delete-link {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	background-color: #4CAF50;
+}
+
+.delete-link:hover {
+	background-color: #ff6060;
+	cursor: pointer;
+}

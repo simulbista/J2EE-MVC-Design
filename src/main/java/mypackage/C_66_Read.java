@@ -1,4 +1,4 @@
-//EmployeeController.java - logic for checking if data from view.jsp form matches with the data from the database
+//controller - gets all the data from the db by calling the read method in the DAO (uses Model)
 package mypackage;
 
 import java.io.IOException;
@@ -24,8 +24,6 @@ public class C_66_Read extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		//storing data(username, password) from the form in view.jsp to the model 
-		//and then passing the model to the DAO to select data from the database based on the username
 		String[][] friendsInfo;
 		try{
 			friendsInfo = friendDAO.getFriendsInfo();
