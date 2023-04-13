@@ -32,14 +32,7 @@ public class C_66_Insert extends HttpServlet {
 		String favoriteColor = req.getParameter("favoriteColor");
 		
 //		server side validation (null check)
-		if(friendName.isEmpty() && emailAddress.isEmpty() && age.isEmpty() && favoriteColor.isEmpty()) {
-			//return back to the form jsp returning empty error
-			System.out.println("One/more of the form fields is empty!");
-			req.setAttribute("popUpMsg", "One/more form field(s) is empty!");
-//			redirect back to the form and passing the validation error msg to be displayed
-			RequestDispatcher dispatcher = req.getRequestDispatcher("V_66_Add.jsp");
-			dispatcher.forward(req, res);
-		}else {
+		if(friendName !=null && !friendName.isEmpty() && emailAddress !=null && !emailAddress.isEmpty() && age !=null &&  !age.isEmpty() && favoriteColor!=null && !favoriteColor.isEmpty()) {
 			//empty validation passed
 			friendModel.setfName(friendName);
 			friendModel.setEmail(emailAddress);
@@ -60,6 +53,17 @@ public class C_66_Insert extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else {
+			//return back to the form jsp returning empty error (along with the incomplete values submitted through the form)
+			System.out.println("One/more of the form fields is empty!");
+			req.setAttribute("popUpMsg", "One/more form field(s) is empty!");
+			req.setAttribute("friendName", friendName);
+			req.setAttribute("emailAddress",emailAddress );
+			req.setAttribute("age", age);
+			req.setAttribute("favoriteColor", favoriteColor);
+//			redirect back to the form and passing the validation error msg to be displayed
+			RequestDispatcher dispatcher = req.getRequestDispatcher("V_66_Add.jsp");
+			dispatcher.forward(req, res);
 		}
 
 	}
